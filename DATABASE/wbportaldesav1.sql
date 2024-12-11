@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 04, 2020 at 04:56 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.9
+-- Waktu pembuatan: 11 Des 2024 pada 05.34
+-- Versi server: 10.1.38-MariaDB
+-- Versi PHP: 5.6.40
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -24,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `agenda`
+-- Struktur dari tabel `agenda`
 --
 
 CREATE TABLE `agenda` (
@@ -39,12 +40,12 @@ CREATE TABLE `agenda` (
   `tgl_selesai` date NOT NULL,
   `tgl_posting` date NOT NULL,
   `jam` varchar(50) COLLATE latin1_general_ci NOT NULL,
-  `dibaca` int(5) NOT NULL DEFAULT 1,
+  `dibaca` int(5) NOT NULL DEFAULT '1',
   `username` varchar(50) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Dumping data for table `agenda`
+-- Dumping data untuk tabel `agenda`
 --
 
 INSERT INTO `agenda` (`id_agenda`, `tema`, `tema_seo`, `isi_agenda`, `tempat`, `pengirim`, `gambar`, `tgl_mulai`, `tgl_selesai`, `tgl_posting`, `jam`, `dibaca`, `username`) VALUES
@@ -55,7 +56,7 @@ INSERT INTO `agenda` (`id_agenda`, `tema`, `tema_seo`, `isi_agenda`, `tempat`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `album`
+-- Struktur dari tabel `album`
 --
 
 CREATE TABLE `album` (
@@ -65,7 +66,7 @@ CREATE TABLE `album` (
   `keterangan` text COLLATE latin1_general_ci NOT NULL,
   `gbr_album` varchar(100) COLLATE latin1_general_ci NOT NULL,
   `aktif` enum('Y','N') COLLATE latin1_general_ci NOT NULL DEFAULT 'Y',
-  `hits_album` int(5) NOT NULL DEFAULT 1,
+  `hits_album` int(5) NOT NULL DEFAULT '1',
   `tgl_posting` date NOT NULL,
   `jam` time NOT NULL,
   `hari` varchar(20) COLLATE latin1_general_ci NOT NULL,
@@ -73,7 +74,7 @@ CREATE TABLE `album` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Dumping data for table `album`
+-- Dumping data untuk tabel `album`
 --
 
 INSERT INTO `album` (`id_album`, `jdl_album`, `album_seo`, `keterangan`, `gbr_album`, `aktif`, `hits_album`, `tgl_posting`, `jam`, `hari`, `username`) VALUES
@@ -85,7 +86,7 @@ INSERT INTO `album` (`id_album`, `jdl_album`, `album_seo`, `keterangan`, `gbr_al
 -- --------------------------------------------------------
 
 --
--- Table structure for table `background`
+-- Struktur dari tabel `background`
 --
 
 CREATE TABLE `background` (
@@ -94,7 +95,7 @@ CREATE TABLE `background` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `background`
+-- Dumping data untuk tabel `background`
 --
 
 INSERT INTO `background` (`id_background`, `gambar`) VALUES
@@ -103,7 +104,7 @@ INSERT INTO `background` (`id_background`, `gambar`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `berita`
+-- Struktur dari tabel `berita`
 --
 
 CREATE TABLE `berita` (
@@ -123,13 +124,13 @@ CREATE TABLE `berita` (
   `tanggal` date NOT NULL,
   `jam` time NOT NULL,
   `gambar` varchar(100) COLLATE latin1_general_ci NOT NULL,
-  `dibaca` int(5) NOT NULL DEFAULT 1,
+  `dibaca` int(5) NOT NULL DEFAULT '1',
   `tag` varchar(100) COLLATE latin1_general_ci NOT NULL,
   `status` enum('Y','N') COLLATE latin1_general_ci NOT NULL DEFAULT 'Y'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Dumping data for table `berita`
+-- Dumping data untuk tabel `berita`
 --
 
 INSERT INTO `berita` (`id_berita`, `id_kategori`, `username`, `judul`, `sub_judul`, `youtube`, `judul_seo`, `headline`, `aktif`, `utama`, `isi_berita`, `keterangan_gambar`, `hari`, `tanggal`, `jam`, `gambar`, `dibaca`, `tag`, `status`) VALUES
@@ -175,13 +176,12 @@ INSERT INTO `berita` (`id_berita`, `id_kategori`, `username`, `judul`, `sub_judu
 (639, 23, 'admin', 'Hilman Hariwijaya dan Eko Patrio akan Re-cycle Film \"Lupus\"', '', '', 'hilman-hariwijaya-dan-eko-patrio-akan-recycle-film-lupus', 'N', 'N', 'N', 'Jakarta - Kabar gembira bagi Anda pecinta novel maupun serial Lupus. Pasalnya, tokoh fiksi rekaan Hilman Wijaya ini akan segera diangkat ke layar lebar oleh rumah produksi eKomando Production.<br />\r\n<br />\r\n&quot;Nanti mau produksi film Lupus, kita re-cycle. Kita mudain lagi,&quot; ujar Eko, pemilik eKomando Production, saat ditemui di kawasan dr Saharjo, Jakarta, Kamis (16/8/2012).<br />\r\n<br />\r\nFilm Lupus diangkat kembali ke layar lebar bukan tanpa alasan. Menurut Eko, tokoh Lupus merupakan anak muda yang konyol tetapi inspiratif. Setiap seri Lupus selalu mengangkat unsur persahabatan. Tak ada nuansa politis atau hal lainnya.<br />\r\n<br />\r\n&quot;Di Lupus ada persahabatan yang abadi, bahu-membahu. Tidak pernah berkaitan dengan masalah politik dan sebagainya. Di sini pure banget yang diangkat pertemanan,&quot; tambah Eko.<br />\r\n<br />\r\nSaat ini skenario sudah rampung dibuat oleh penulisnya, Hilman Hariwijaya. Meski demikian, tokoh Lupus hingga saat ini belum ditentukan. Rencananya, Lupus mulai tayang di bioskop pada Februari 2013, bertepatan dengan Hari Valentine.\r\n', '', 'Kamis', '2012-08-23', '02:21:00', '', 14, 'film,hiburan', 'Y'),
 (640, 23, 'admin', 'Marvel Umumkan Jadwal Rilis \"The Avengers 2\"', '', '', 'marvel-umumkan-jadwal-rilis-the-avengers-2', 'N', 'N', 'N', 'Los Angeles - The Avengers is back. Setelah memastikan Joss Whedon bakal kembali berada di balik layar, Marvel juga mengumumkan jadwal penayangan perdana The Avengers 2.<br />\r\n<br />\r\nRencanannya, film kumpulan para superhero ini akan dirilis pada tanggal 1 Mei 2015 mendatang setelah mereka menanyangkan film-film terkaitnya seperti Iron 3, Captain America 2 dan Thor 2.<br />\r\n<br />\r\nMeski belum memiliki judul, Marvel dan Disney sudah siap untuk kembali memproduksi film terlaris ketiga box office sepanjang masa. &quot;Walt Disney telah mengumumkan tanggal perilisan sekuel dari film blockbuster superhero terbesar dan film terlaris ketiga sepanjang masa, The Avengers,&quot; tulisnya dalam rilis yang dilansir Digital Spy.<br />\r\n<br />\r\n&quot;Josh Whedon akan kembali menulis naskah dan menyutradarai sekuel Avengers ini dan akan dirilis pada 1 Mei 2015,&quot; tambah Marvel.<br />\r\n<br />\r\nMenyusul pengumuman tersebut, bisa dipastikan bahwa para bintang The Avengers seperti Robert Downey Jr, Chris Hemsworth dan Chris Evens akan kembali tampil untuk memeriahkan film tersebut.\r\n', '', 'Kamis', '2012-08-23', '02:33:21', '', 37, 'film,hiburan', 'Y'),
 (641, 23, 'admin', 'Film Dirilis, Dewi Lestari Deg-degan Menunggu Pemutarannya', '', 'http://www.youtube.com/embed/QgDWRe1TNRg', 'film-dirilis-dewi-lestari-degdegan-menunggu-pemutarannya', 'N', 'N', 'N', '<p>Jakarta -&nbsp; Penulis novel laris \"Perahu Kertas\", Dewi Lestari, mengaku tegang menjelang penayangan perdana film Perahu Kertas di bioskop hari ini. \"Sangat deg-degan,\" kata penulis dengan nama pena Dee itu usai jumpa pembaca novel Perahu Kertas di Gramedia Matraman, Jakarta, Kamis. Film yang diangkat dari novel setebal 456 halaman itu sudah tayang khusus untuk media dan undangan Rabu (8/8/2012) lalu. <br /> <br /> \"Kalau yang kemarin kan baru wartawan dan undangan, tetapi kalau sekarang yang dihadapi real judgment (penilaian nyata), sekarang penonton yang menilai. Lama film tayang di bioskop kan ditentukan dari penonton,\" kata Dee.<br /> <br /> Film&nbsp; Perahu Kertas disutradarai oleh Hanung Bramantyo. Artis muda Maudy Ayunda dan Adipati Dolken yang pernah beradu akting di film&nbsp; Malaikat Tanpa Sayap menjadi pemeran utama film tersebut.<br /> <br /> Meskipun ada beberapa adegan film yang berbeda dengan kisah dalam novel namun Dee mengatakan hampir 80 persen jalan cerita film Perahu Kertas&nbsp; sama dengan novel.<br /> <br /> \"Kalau ada yang protes itu risiko ya, pasti ada dan buat saya itu wajar. Komparasi pasti terjadi. Tetapi sebagai film, Perahu Kertas solid,\" kata ibu dua anak itu.</p>', '', 'Kamis', '2012-08-23', '02:40:30', '', 36, 'film,hiburan', 'Y'),
-(682, 39, 'admin', 'Kepala desa terhebat sedunia di indonesia', '', '', 'kepala-desa-terhebat-sedunia-di-indonesia', 'Y', 'N', 'N', '<p>Mantan aktivis mahasiswa UGM itu mengaku gerah dengan sistem birokrasi di pemerintahan desa yang selama ini kaku dan dingin. Pamong desa cenderung berorientasi dilayani bukan melayani masyarakat, tokoh yang disegani masyarakat, serta komunikasi hanya berjalan satu arah.</p>\r\n\r\n<p>Pria yang masih menempuh pendidikan Strata II di Sekolah Tinggi Pembangunan Masyarakat Desa (STPMD &ldquo;APMD&rsquo;) itu mulai melakukan cara-cara tidak biasa. Di antaranya mengumumkan program serta anggaran pendapatan dan belanja desa (APBDes) ke masyarakat minimal setahun sekali. &nbsp;Ia juga menggandeng Badan Pengawas Keuangan dan Pembangunan (BPKP) untuk menyusun rencana pembangunan desa serta kontrol anggaran.</p>\r\n\r\n<p>Ia juga tidak segan-segan merotasi jabatan anak buahnya agar terjadi perubahan kinerja.</p>\r\n\r\n<p>&ldquo;Biasanya banyak desa menghindari BPKP, kami malah menggandeng. Kerja jadi lebih semangat karena kami yakin tidak ada yang dilanggar,&rdquo; papar bapak dua anak itu.</p>\r\n\r\n<p>Wahyudi memang kritis bila menyangkut masalah akuntabilitas terutama anggaran. Saat ia maju dalam pemilihan kepada desa (Pilkades) 2012, ia mengusung isu politik uang. Semangat itu pula yang menghantarkannya duduk di kursi nomor satu di Desa Panggungharjo.</p>\r\n\r\n<p>Semangat bebas korupsi, kolusi dan nepotisme itu bahkan dibawa hingga ia menjabat. Sudah berkali-kali pemerintah desa Panggungharjo menolak gratifikasi dari sejumlah pengembang perumahan dan pengusaha tower yang beroperasi di Panggungharjo. Tiap pengusaha menawarkan uang pelicin antara Rp5 juta-Rp15 juta untuk memuluskan usaha mereka.</p>\r\n\r\n<p>&ldquo;Di mana-mana kan sudah lazim, setiap pengusaha masuk ada uang permisi yang harus dibayar ke banyak pos pemerintah dari desa sampai kabupaten,&rdquo; ungkapnya.</p>\r\n\r\n<p>Pengusaha justru diarahkan menggunakan uang itu untuk bantuan sosial ke masyarakat yang difasilitasi pemerintah desa. Di antaranya beasiswa untuk siswa miskin dan bantuan kesehatan. Sedikitnya ada 11 anak dari keluarga tidak mampu kini mengantongi asuransi pendidikan berkat uang gratifikasi yang ia tolak tersebut.</p>\r\n', '', 'Kamis', '2012-08-23', '02:49:25', '57petani.jpg', 59, 'internasional', 'Y'),
 (643, 42, 'admin', 'Fatima Nabil, Presenter TV Berjilbab Pertama di Mesir', '', '', 'fatima-nabil-presenter-tv-berjilbab-pertama-di-mesir', 'N', 'N', 'N', '<p>\r\nKairo - Fatima\r\nNabil mencatat sejarah. Ia menjadi presenter pertama yang berjilbab \r\nyang muncul di televisi milik pemerintah Mesir. Dalam balutan jilbab \r\nberwarna krem, dan jas hitam Fatima membacakan buletin berita siang, \r\nMinggu 2 September 2012.&nbsp;\r\n</p>\r\n<p>\r\n&quot;Akhirnya revolusi juga terjadi di \r\ntelevisi milik pemerintah,&quot; kata Nabil. Ia berharap kemunculannya ini \r\ndiikuti tak hanya presenter berita tapi juga presenter cuaca dan \r\nlainnya.\r\n</p>\r\n<p>\r\n&quot;Saat ini, standar bukan tergantung pada \r\njilbab, yang sebenarnya merupakan pilihan pribadi setiap perempuan. Tapi\r\nlebih pada profesionalitas dan intelektual,&quot; ujarnya.\r\n</p>\r\n<p>\r\nSejak televisi pemerintah ini berdiri tahun 1960, dibawah rejim Presiden\r\nHosni Mubarok, perempuan yang mengenakan jilbab dilarang menjadi \r\npresenter. Aturan ini sempat ditentang sejumlah aktivis hak asasi dan \r\nkelompok liberal, namun kandas.\r\n</p>\r\n<p>\r\nPemerintah baru yang \r\ndipimpin Presiden Mohammed Mursi, mencabut aturan ini. Menteri Informasi\r\nBaru Saleh Abdel-Makshoud mengatakan sudah banyak perempuan berjilbab \r\nyang muncul sebagai presenter di channel-channel televisi Arab dan \r\ninternasional. Jadi perubahan ini tak menjadi masalah apalagi saat ini \r\nhampir 70% perempuan Mesir mengenakan jilbab.\r\n</p>\r\n<p>\r\nPetinggi stasiun televisi tersebut mengatakan munculnya Nabila bisa \r\nmembangkitkan semangat perempuan lain yang ingin tetap mempertahankan \r\njilbab mereka tanpa harus takut kehilangan pekerjaan. (Sumber: Tempo.co)\r\n</p>\r\n', '', 'Kamis', '2012-11-22', '10:07:13', '', 22, 'internasional', 'Y'),
 (681, 22, 'admin', 'Desa Terkaya di Dunia dan Kisah Luar Biasa Pemimpinya', '', '', 'desa-terkaya-di-dunia-dan-kisah-luar-biasa-pemimpinya', 'Y', 'N', 'N', '<p>Tim Evaluasi Lomba Desa Tingkat Nasional menominasikan Desa Panggungharjo, Kabupaten Bantul, Daerah Istimewa Yogyakarta, dalam 10 besar desa terbaik se Indonesia.<br />\r\nKetua Tim Evaluasi Lomba Desa Tingkat Nasional Valentino Sudaryanto, menyebutkan, Desa Panggungharjo mempunyai Kampung Dolanan Anak, batik enceng gondok, konveksi dari kain bekas serta produksi makanan khas desa, yang mana pada saat ini ditampilkan masyarakat setempat dalam tahapan penilaian lomba desa tersebut.</p>\r\n\r\n<p>&quot;Ini membanggakan karena Desa Panggungharjo, Kecamatan Sewon, berhasil masuk dalam 10 besar desa terbaik dari sekitar 70.000 desa se-Indonesia. Kami sangat terkesan dengan cara penyambutannya,&quot; katanya di Balai Desa Panggungharjo, Bantul, Jumat (18/7), seperti dilansir Antara.</p>\r\n\r\n<p>Menurut Valention, lomba desa tingkat nasional yang salah satunya diikuti Desa Panggungharjo, akan dilaksanakan dalam empat tahapan yakni tahapan administrasi, verifikasi lapangan, pemaparan atau presentasi serta penetapan juara terbaik.</p>\r\n\r\n<p>&quot;Dalam verifikasi lapangan saat ini, dari 10 desa akan diambil enam desa terbaik, mereka kemudian diminta mempresentasikan di depan dewan juri,&quot; kata Valentino.<br />\r\nMenurut dia, verifikasi di lapangan dilakukan dengan penilaian pemberdayaan dan partisipasi masyarakat dalam setiap program, potensi dan tingkat perkembangan desa disertai keunikannya, pemahaman aparat desa dalam sistem informasi penyelenggaraan desa, serta pembangunan desa dan kawasan pedesaan.<br />\r\n&quot;Acuannya meliputi pemberdayaan masyarakat, inisiatif masyarakat dalam pemerintahan, juga kepatuhan mereka terhadap kebijakan pemerintahan. Kami berharap Desa Panggungharjo bisa menjadi contoh teladan bagi desa lain,&quot; katanya.</p>\r\n\r\n<p>Pihaknya juga berharap kepada pemerintah setempat, agar perkembangan desa bisa terus didukung dengan disertai pembinaan agar kualitasnya semakin baik, apalagi animo pemerintah daerah dalam mengikuti lomba desa tingkat nasional semakin meningkat.</p>\r\n\r\n<p>Camat Sewon Bantul, Wintarto menambahkan, Desa Panggungharjo terdiri dari 461 rukun tetangga (RT), dan merupakan daerah pertumbuhan di mana banyak terjadi perkembangan perumahan sehingga sebagian dari jumlah penduduk sebanyak 106.929 jiwa merupakan pendatang.</p>\r\n', '', 'Jumat', '2013-01-25', '00:01:04', '14Cerpen Pertanian.jpg', 82, '', 'Y'),
 (651, 21, 'admin', 'Banjir Jakarta, Kerugian Ekonomi Capai Rp 1 Triliun', 'Jakarta Darurat Banjir', 'http://www.youtube.com/embed/RQMbr4DBqXk', 'banjir-jakarta-kerugian-ekonomi-capai-rp-1-triliun', 'N', 'N', 'Y', '<p>\r\nKetua Asosiasi Pengusaha Indonesia Sofjan Wanandi mengatakan, banjir yang melanda Jakarta sepekan ini telah menimbulkan kerugian ekonomi yang cukup tinggi. Biaya bencana yang ditanggung untuk sekadar menyediakan makan&nbsp; bagi para pengungsi pun mencapai Rp 1 miliar lebih. \r\n</p>\r\n<p>\r\nHal itu disampaikan Sofjan, saat ditemui di area bencana banjir di Penjaringan, Jakarta Utara, Minggu (20/1/2013).\r\n</p>\r\n<p>\r\nSofjan menegaskan, tak bergeraknya roda ekonomi di Jakarta akibat bencana banjir menyebabkan kerugian lebih dari Rp 1 triliun. Aktivitas perdagangan menjadi tidak berjalan, dan kawasan Industri Pulogadung juga ikut lumpuh karena tak memperoleh suplai listrik akibat gardu listrik terendam banjir. \r\n</p>\r\n<p>\r\nNegara importir pun, katanya, mulai mempertanyakan kapan Jakarta bisa pulih, karena ini sangat terkait dengan kegiatan ekspor komoditas keluar negeri dari seluruh daerah di Indonesia yang bertumpu di Jakarta.\r\n</p>\r\n<p>\r\n&rdquo;Importir itu mulai bertanya-tanya, kapan banjir di Jakarta bisa surut. Kendati mereka saat ini memahami Jakarta sedang dilanda bencana,&rdquo; kata Sofjan. (sumber: kompas.com)\r\n</p>\r\n', '', 'Jumat', '2013-01-25', '00:06:15', '', 12, 'ekonomi', 'Y'),
-(652, 22, 'admin', 'Hary Tanoe Mundur dari Partai Nasdem', '', '', 'hary-tanoe-mundur-dari-partai-nasdem', 'N', 'Y', 'N', '<p>\r\nKetua Dewan Pakar DPP Partai Nasional Demokrat (Nasdem) Hary Tanoesoedibjo menyatakan mundur dari keanggotaan Partai Nasdem. Hal itu disampaikannya secara resmi dalam jumpa pers, Senin (21/1/2013), di Jakarta.\r\n</p>\r\n<p>\r\n&quot;Saya menyatakan mundur dalam kapasitas saya sebagai Ketua Dewan Pakar. Mulai hari ini, saya bukan lagi anggota dari Partai Nasdem. Keputusan ini saya lakukan dengan berat hati,&quot; kata Hary.\r\n</p>\r\n<p>\r\nIa menyatakan, sejak bergabung dengan Partai Nasdem pada 9 Oktober 2011, Hary merasa telah melakukan upaya terbaik, baik energi, pikiran, dana, maupun risiko, untuk berpartisipasi membesarkan Partai Nasdem. &quot;Target utamanya lolos verifikasi dan lolos sebagai partai peserta pemilu. Saya merupakan bagian yang ikut meloloskan Nasdem,&quot; kata bos MNC Grup ini.\r\n</p>\r\n<p>\r\n&quot;Keputusan saya ini tidak mengenakkan, tapi pada satu titik saya harus memutuskan ini. Aktivitas politik harus tetap dijalankan. Destiny keterlibatan saya di politik adalah menjadi bagian dari perubahan untuk bangsa Indonesia menjadi lebih baik. Saya ingin ikut andil secara nyata, langsung. Karena bagaimanapun politik menjadi satu bagian ideologi dan bagian dari masa depan kita,&quot; papar Hary.\r\n</p>\r\n<p>\r\nPerpecahan di tubuh Nasdem mulai merebak ketika beredar kabar adanya faksi di dalam partai itu. Dikabarkan, Surya Paloh yang akan menjadi ketua umum partai itu berseberangan dengan faksi Hary Tanoe. Beberapa waktu lalu, kelompok Surya Paloh memecat Sekjen Garda Pemuda Nasional Demokrat (GPND), Saiful Haq.\r\n</p>\r\n<p>\r\nTentang alasannya mundur, Hary mengatakan karena ada perbedaan pendapat dengan Ketua Majelis Tinggi Partai Nasdem Surya Paloh (sumber: kompas.com) \r\n</p>\r\n', '', 'Jumat', '2013-01-25', '00:58:26', '', 14, 'politik', 'Y');
+(652, 22, 'admin', 'Hary Tanoe Mundur dari Partai Nasdem', '', '', 'hary-tanoe-mundur-dari-partai-nasdem', 'N', 'Y', 'N', '<p>\r\nKetua Dewan Pakar DPP Partai Nasional Demokrat (Nasdem) Hary Tanoesoedibjo menyatakan mundur dari keanggotaan Partai Nasdem. Hal itu disampaikannya secara resmi dalam jumpa pers, Senin (21/1/2013), di Jakarta.\r\n</p>\r\n<p>\r\n&quot;Saya menyatakan mundur dalam kapasitas saya sebagai Ketua Dewan Pakar. Mulai hari ini, saya bukan lagi anggota dari Partai Nasdem. Keputusan ini saya lakukan dengan berat hati,&quot; kata Hary.\r\n</p>\r\n<p>\r\nIa menyatakan, sejak bergabung dengan Partai Nasdem pada 9 Oktober 2011, Hary merasa telah melakukan upaya terbaik, baik energi, pikiran, dana, maupun risiko, untuk berpartisipasi membesarkan Partai Nasdem. &quot;Target utamanya lolos verifikasi dan lolos sebagai partai peserta pemilu. Saya merupakan bagian yang ikut meloloskan Nasdem,&quot; kata bos MNC Grup ini.\r\n</p>\r\n<p>\r\n&quot;Keputusan saya ini tidak mengenakkan, tapi pada satu titik saya harus memutuskan ini. Aktivitas politik harus tetap dijalankan. Destiny keterlibatan saya di politik adalah menjadi bagian dari perubahan untuk bangsa Indonesia menjadi lebih baik. Saya ingin ikut andil secara nyata, langsung. Karena bagaimanapun politik menjadi satu bagian ideologi dan bagian dari masa depan kita,&quot; papar Hary.\r\n</p>\r\n<p>\r\nPerpecahan di tubuh Nasdem mulai merebak ketika beredar kabar adanya faksi di dalam partai itu. Dikabarkan, Surya Paloh yang akan menjadi ketua umum partai itu berseberangan dengan faksi Hary Tanoe. Beberapa waktu lalu, kelompok Surya Paloh memecat Sekjen Garda Pemuda Nasional Demokrat (GPND), Saiful Haq.\r\n</p>\r\n<p>\r\nTentang alasannya mundur, Hary mengatakan karena ada perbedaan pendapat dengan Ketua Majelis Tinggi Partai Nasdem Surya Paloh (sumber: kompas.com) \r\n</p>\r\n', '', 'Jumat', '2013-01-25', '00:58:26', '', 14, 'politik', 'Y'),
+(653, 41, 'admin', 'Ketika \"Ciyus\" Terucap dari Mulut Jokowi', '', '', 'ketika-ciyus-terucap-dari-mulut-jokowi', 'N', 'Y', 'N', '<p>\r\nKata <em>ciyus</em> atau serius sering terdengar diucapkan anak-anak \r\nzaman sekarang yang sering dijuluki anak baru gede (ABG). Nah, ketika \r\nbahasa gaul itu diucapkan oleh Joko Widodo, para pewarta yang bertugas \r\nmeliput kegiatan Gubernur DKI Jakarta itu tak bisa menahan tawa karena \r\nnadanya yang sedikit medok.\r\n</p>\r\n<p>\r\nTerhitung sudah dua kali Jokowi \r\nmelontarkan kata itu kepada wartawan.    Pertama, saat Jumat (18/1/2013)\r\nmalam lalu, ketika Jokowi meninjau perbaikan Tanggul Kanal Banjir Barat\r\n(KBB) di Latuharhary, Jakarta Pusat. Seharian raut muka Jokowi begitu \r\nserius dan tegang karena pengerjaan tanggul yang masih belum selesai, \r\nditambah hujan deras yang terus mengguyur Ibu Kota. Pendek kata, Jokowi \r\ntampak sangat suntuk dan senyum khasnya pun tak terpancar dari dirinya.\r\n</p>\r\n<p>\r\nSaat\r\nitu, Jokowi menghampiri wartawan yang sudah menunggunya di luar rel \r\nkereta api yang terputus. Lantas para wartawan berniat mencairkan \r\nsuasana dengan melontarkan pertanyaan-pertanyaan konyol kepada Jokowi, \r\nseperti &quot;Apabila tanggul selesai, ditandai oleh pemotongan pita di Sency\r\n(Senayan City)?&quot;. Mendengar pertanyaan itu, senyum yang hilang dari \r\nJokowi akhirnya muncul kembali.\r\n</p>\r\n<p>\r\nSeraya mengernyitkan dahinya, \r\nJokowi bertanya, &quot;Apa itu Sency?&quot;   Wartawan pun langsung menjelaskan \r\nkalau Sency itu adalah kependekan dari Senayan City. Mengetahui hal \r\ntersebut, Jokowi pun tertawa dan mengatakan kalau berbicara hendaknya \r\njangan disingkat-singkat. &quot;Oh, <em>kirain </em>saya sensitif itu maksudnya. <em>Mbok</em>, jangan disingkat-singkat, <em>tho</em>,&quot; kata Jokowi.\r\n</p>\r\n<p>\r\nPembicaraan itu pula yang membuat Jokowi melontarkan kata <em>ciyus</em> dan <em>miapah</em> kepada wartawan. &quot;Kalau <em>ciyus miapah </em>itu apa? Ha-ha-ha,&quot; kata Jokowi yang membuat suasana lokasi tersebut yang awalnya tegang menjadi ramai. \r\n</p>\r\n<p>\r\nKata <em>ciyus </em>kembali\r\ndiucapkan Jokowi, Selasa (22/1/2013) kemarin, saat berbincang dengan \r\nwartawan di Balaikota DKI. Bahasa gaul itu keluar kembali setelah ia \r\nditanya terkait kinerjanya 100 hari. \r\n</p>\r\n<p>\r\nSaat itu, Jokowi ditanya \r\nmasalah Jakarta apa yang membuat Jokowi pusing. Jokowi pun menjawab  tak\r\nada persoalan yang membuatnya pusing karena ia telah menghadapi  \r\nmasalah itu sejak ia memimpin Solo selama delapan tahun. Namun, ada satu\r\nmasa Jokowi mengaku tidak memiliki semangat. &quot;Yaitu kalau pas B sama \r\npas T. Apa  itu? Pokoknya pas B sama pas T. <em>Ciyuss</em>,&quot; canda Jokowi yang mengundang  tawa para wartawan. (sumber: kompas.com)\r\n</p>\r\n', '', 'Jumat', '2013-01-25', '01:11:01', '', 19, 'metropolitan', 'Y');
 INSERT INTO `berita` (`id_berita`, `id_kategori`, `username`, `judul`, `sub_judul`, `youtube`, `judul_seo`, `headline`, `aktif`, `utama`, `isi_berita`, `keterangan_gambar`, `hari`, `tanggal`, `jam`, `gambar`, `dibaca`, `tag`, `status`) VALUES
-(653, 41, 'admin', 'Ketika \"Ciyus\" Terucap dari Mulut Jokowi', '', '', 'ketika-ciyus-terucap-dari-mulut-jokowi', 'N', 'Y', 'N', '<p>\r\nKata <em>ciyus</em> atau serius sering terdengar diucapkan anak-anak \r\nzaman sekarang yang sering dijuluki anak baru gede (ABG). Nah, ketika \r\nbahasa gaul itu diucapkan oleh Joko Widodo, para pewarta yang bertugas \r\nmeliput kegiatan Gubernur DKI Jakarta itu tak bisa menahan tawa karena \r\nnadanya yang sedikit medok.\r\n</p>\r\n<p>\r\nTerhitung sudah dua kali Jokowi \r\nmelontarkan kata itu kepada wartawan.    Pertama, saat Jumat (18/1/2013)\r\nmalam lalu, ketika Jokowi meninjau perbaikan Tanggul Kanal Banjir Barat\r\n(KBB) di Latuharhary, Jakarta Pusat. Seharian raut muka Jokowi begitu \r\nserius dan tegang karena pengerjaan tanggul yang masih belum selesai, \r\nditambah hujan deras yang terus mengguyur Ibu Kota. Pendek kata, Jokowi \r\ntampak sangat suntuk dan senyum khasnya pun tak terpancar dari dirinya.\r\n</p>\r\n<p>\r\nSaat\r\nitu, Jokowi menghampiri wartawan yang sudah menunggunya di luar rel \r\nkereta api yang terputus. Lantas para wartawan berniat mencairkan \r\nsuasana dengan melontarkan pertanyaan-pertanyaan konyol kepada Jokowi, \r\nseperti &quot;Apabila tanggul selesai, ditandai oleh pemotongan pita di Sency\r\n(Senayan City)?&quot;. Mendengar pertanyaan itu, senyum yang hilang dari \r\nJokowi akhirnya muncul kembali.\r\n</p>\r\n<p>\r\nSeraya mengernyitkan dahinya, \r\nJokowi bertanya, &quot;Apa itu Sency?&quot;   Wartawan pun langsung menjelaskan \r\nkalau Sency itu adalah kependekan dari Senayan City. Mengetahui hal \r\ntersebut, Jokowi pun tertawa dan mengatakan kalau berbicara hendaknya \r\njangan disingkat-singkat. &quot;Oh, <em>kirain </em>saya sensitif itu maksudnya. <em>Mbok</em>, jangan disingkat-singkat, <em>tho</em>,&quot; kata Jokowi.\r\n</p>\r\n<p>\r\nPembicaraan itu pula yang membuat Jokowi melontarkan kata <em>ciyus</em> dan <em>miapah</em> kepada wartawan. &quot;Kalau <em>ciyus miapah </em>itu apa? Ha-ha-ha,&quot; kata Jokowi yang membuat suasana lokasi tersebut yang awalnya tegang menjadi ramai. \r\n</p>\r\n<p>\r\nKata <em>ciyus </em>kembali\r\ndiucapkan Jokowi, Selasa (22/1/2013) kemarin, saat berbincang dengan \r\nwartawan di Balaikota DKI. Bahasa gaul itu keluar kembali setelah ia \r\nditanya terkait kinerjanya 100 hari. \r\n</p>\r\n<p>\r\nSaat itu, Jokowi ditanya \r\nmasalah Jakarta apa yang membuat Jokowi pusing. Jokowi pun menjawab  tak\r\nada persoalan yang membuatnya pusing karena ia telah menghadapi  \r\nmasalah itu sejak ia memimpin Solo selama delapan tahun. Namun, ada satu\r\nmasa Jokowi mengaku tidak memiliki semangat. &quot;Yaitu kalau pas B sama \r\npas T. Apa  itu? Pokoknya pas B sama pas T. <em>Ciyuss</em>,&quot; canda Jokowi yang mengundang  tawa para wartawan. (sumber: kompas.com)\r\n</p>\r\n', '', 'Jumat', '2013-01-25', '01:11:01', '', 19, 'metropolitan', 'Y'),
 (654, 31, 'admin', 'Bahaya Mendiagnosis Penyakit Lewat Internet', '', '', 'bahaya-mendiagnosis-penyakit-lewat-internet', 'N', 'Y', 'N', '<p>\r\nApakah Anda mengunjungi &quot;dokter Google&quot; lebih sering dari dokter di \r\nklinik? Anda tidak sendiri. Dalam sebuah survei tahun lalu di Amerika \r\ndiketahui bahwa 35 persen responden mencocokkan gejala penyakitnya di \r\ninternet dan mendiagnosis dirinya sendiri.\r\n</p>\r\n<p>\r\nMasih menurut survei \r\nyang dilakukan The Pew Research Center&#39;s Internet &amp; American Life \r\nProject itu, sekitar 41 responden mengatakan diagnosis sendiri itu \r\nternyata dikonfirmasi kebenarannya oleh dokter. \r\n</p>\r\n<p>\r\nTetapi, sekitar \r\nsatu dari tiga responden mengaku tidak pernah pergi ke dokter untuk \r\nmencari opini kedua. Malahan, 18 persen responden mengatakan bahwa upaya\r\nmendiagnosis sendiri itu ternyata salah ketika ditanyakan ke dokter. \r\n</p>\r\n<p>\r\nMeski\r\nsurvei yang melibatkan 3.000 responden itu sebenarnya dilakukan untuk \r\nmengetahui siapa yang mencari informasi kesehatan secara <em>online</em>, tetapi para profesional medis merasa khawatir dengan tren itu.\r\n</p>\r\n<p>\r\n&quot;Rata-rata\r\ntiap orang mengunjungi empat situs lalu memutuskan ia menderita kanker \r\ndan akan segera meninggal. Padahal, di internet banyak informasi yang \r\nkeliru,&quot; kata Rahul K Khare, dokter unit gawat darurat dari Northwestern\r\nMemorial Hospital.\r\n</p>\r\n<p>\r\nMenurut Khare, ia sering menemukan pasien \r\nyang hidupnya menjadi penuh kecemasan karena mereka merasa menderita \r\npenyakit berat setelah mencocokkan gejala yang dirasakannya dengan \r\ninformasi di internet. (sumber: kompas.com)\r\n</p>\r\n', '', 'Jumat', '2013-01-25', '01:18:13', '', 20, 'kesehatan', 'Y'),
 (655, 19, 'admin', 'Microsoft Update Windows 8.2 Agustus?', '', '', 'microsoft-update-windows-82-pada-agustus', 'N', 'Y', 'Y', '<p><span>Kebocoran mengenai update OS Windows 8 yang kedua datang menghinggapi Microsoft. Windows 8.1 update 2 direncanakan diperbarui pada Agustus mendatang.</span><br /><br /><span>Melalui sebuah gambar yang diklaim otentik berasal dari Rusia, informasi dari dokumen itu hampir sama dengan rumor yang beredar selama ini.</span><br /><br /><span>Sementara itu, update untuk Threshold masih menjadi rumor dan belum diketahui kapan akan dilaksanakan. Microsoft belum mengkonfirmasi apapun terkait gambar bocornya&nbsp;</span><em>update</em><span>&nbsp;windows 8.1 update 2 tersebut seperti dilansir&nbsp;</span><em>Neowin</em><span>, Senin (21/7/2014).</span><br /><br /><span>Belum diketahui seperti apa detail fitur yang dihadirkan pada Windows 8.2. Sementara Windows 9 dikabarkan memiliki tampilan antarmuka Metro baru.</span><br /><br /><span>Selain itu, terdapat menu start baru dan aplikasi Metro dengan tampilan jendela yang disertakan dalam&nbsp;</span><em>update&nbsp;</em><span>tersebut. Konon, Microsoft sedang mempertimbangkan membuat versi gratis dari Windows 9.</span><br /><br /><span>Informasi yang beredar juga menyebutkan bahwa Microsoft sedang bekerja pada Windows Cloud. Menurut WZor, ada tim di Microsoft yang bekerja pada prototype sistem operasi, di mana pengguna bisa mengunduh gratis dan menambahkan fungsionalitas melalui sistem berlangganan.</span></p>', '', 'Senin', '2014-07-21', '21:22:52', '', 52, 'internasional,teknologi', 'Y'),
 (680, 39, 'admin', 'Desa Bantul Masuk Nominasi 10 Besar Desa Terbaik Se Indonesia', '', '', 'desa-bantul-masuk-nominasi-10-besar-desa-terbaik-se-indonesia', 'Y', 'Y', 'Y', '<p>Tim Evaluasi Lomba Desa Tingkat Nasional menominasikan Desa Panggungharjo, Kabupaten Bantul, Daerah Istimewa Yogyakarta, dalam 10 besar desa terbaik se Indonesia.<br />\r\nKetua Tim Evaluasi Lomba Desa Tingkat Nasional Valentino Sudaryanto, menyebutkan, Desa Panggungharjo mempunyai Kampung Dolanan Anak, batik enceng gondok, konveksi dari kain bekas serta produksi makanan khas desa, yang mana pada saat ini ditampilkan masyarakat setempat dalam tahapan penilaian lomba desa tersebut.</p>\r\n\r\n<p>&quot;Ini membanggakan karena Desa Panggungharjo, Kecamatan Sewon, berhasil masuk dalam 10 besar desa terbaik dari sekitar 70.000 desa se-Indonesia. Kami sangat terkesan dengan cara penyambutannya,&quot; katanya di Balai Desa Panggungharjo, Bantul, Jumat (18/7), seperti dilansir Antara.</p>\r\n\r\n<p>Menurut Valention, lomba desa tingkat nasional yang salah satunya diikuti Desa Panggungharjo, akan dilaksanakan dalam empat tahapan yakni tahapan administrasi, verifikasi lapangan, pemaparan atau presentasi serta penetapan juara terbaik.</p>\r\n\r\n<p>&quot;Dalam verifikasi lapangan saat ini, dari 10 desa akan diambil enam desa terbaik, mereka kemudian diminta mempresentasikan di depan dewan juri,&quot; kata Valentino.<br />\r\nMenurut dia, verifikasi di lapangan dilakukan dengan penilaian pemberdayaan dan partisipasi masyarakat dalam setiap program, potensi dan tingkat perkembangan desa disertai keunikannya, pemahaman aparat desa dalam sistem informasi penyelenggaraan desa, serta pembangunan desa dan kawasan pedesaan.<br />\r\n&quot;Acuannya meliputi pemberdayaan masyarakat, inisiatif masyarakat dalam pemerintahan, juga kepatuhan mereka terhadap kebijakan pemerintahan. Kami berharap Desa Panggungharjo bisa menjadi contoh teladan bagi desa lain,&quot; katanya.</p>\r\n\r\n<p>Pihaknya juga berharap kepada pemerintah setempat, agar perkembangan desa bisa terus didukung dengan disertai pembinaan agar kualitasnya semakin baik, apalagi animo pemerintah daerah dalam mengikuti lomba desa tingkat nasional semakin meningkat.</p>\r\n\r\n<p>Camat Sewon Bantul, Wintarto menambahkan, Desa Panggungharjo terdiri dari 461 rukun tetangga (RT), dan merupakan daerah pertumbuhan di mana banyak terjadi perkembangan perumahan sehingga sebagian dari jumlah penduduk sebanyak 106.929 jiwa merupakan pendatang.</p>\r\n', '', 'Rabu', '2014-07-23', '14:28:02', '35petani-facebook-1-1.jpg', 236, 'hukum,internasional,israel,palestina,teknologi,yahudi', 'Y'),
@@ -208,7 +208,7 @@ INSERT INTO `berita` (`id_berita`, `id_kategori`, `username`, `judul`, `sub_judu
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_penduduk`
+-- Struktur dari tabel `data_penduduk`
 --
 
 CREATE TABLE `data_penduduk` (
@@ -225,7 +225,7 @@ CREATE TABLE `data_penduduk` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `data_penduduk`
+-- Dumping data untuk tabel `data_penduduk`
 --
 
 INSERT INTO `data_penduduk` (`id_data_penduduk`, `no_kk`, `kepala_keluarga`, `alamat`, `rt_rw`, `kode_pos`, `desa_kelurahan`, `kecamatan`, `kab_kota`, `propinsi`) VALUES
@@ -235,7 +235,7 @@ INSERT INTO `data_penduduk` (`id_data_penduduk`, `no_kk`, `kepala_keluarga`, `al
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_penduduk_detail`
+-- Struktur dari tabel `data_penduduk_detail`
 --
 
 CREATE TABLE `data_penduduk_detail` (
@@ -254,7 +254,7 @@ CREATE TABLE `data_penduduk_detail` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `data_penduduk_detail`
+-- Dumping data untuk tabel `data_penduduk_detail`
 --
 
 INSERT INTO `data_penduduk_detail` (`id_data_penduduk_detail`, `id_data_penduduk`, `nama_lengkap`, `nik`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `agama`, `pendidikan`, `jenis_pekerjaan`, `username`, `waktu_input`) VALUES
@@ -266,7 +266,7 @@ INSERT INTO `data_penduduk_detail` (`id_data_penduduk_detail`, `id_data_penduduk
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gallery`
+-- Struktur dari tabel `gallery`
 --
 
 CREATE TABLE `gallery` (
@@ -280,7 +280,7 @@ CREATE TABLE `gallery` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Dumping data for table `gallery`
+-- Dumping data untuk tabel `gallery`
 --
 
 INSERT INTO `gallery` (`id_gallery`, `id_album`, `username`, `jdl_gallery`, `gallery_seo`, `keterangan`, `gbr_gallery`) VALUES
@@ -314,7 +314,7 @@ INSERT INTO `gallery` (`id_gallery`, `id_album`, `username`, `jdl_gallery`, `gal
 -- --------------------------------------------------------
 
 --
--- Table structure for table `halamanstatis`
+-- Struktur dari tabel `halamanstatis`
 --
 
 CREATE TABLE `halamanstatis` (
@@ -325,17 +325,17 @@ CREATE TABLE `halamanstatis` (
   `tgl_posting` date NOT NULL,
   `gambar` varchar(100) NOT NULL,
   `username` varchar(50) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
-  `dibaca` int(5) NOT NULL DEFAULT 1,
+  `dibaca` int(5) NOT NULL DEFAULT '1',
   `jam` time NOT NULL,
   `hari` varchar(20) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `halamanstatis`
+-- Dumping data untuk tabel `halamanstatis`
 --
 
 INSERT INTO `halamanstatis` (`id_halaman`, `judul`, `judul_seo`, `isi_halaman`, `tgl_posting`, `gambar`, `username`, `dibaca`, `jam`, `hari`) VALUES
-(1, '<b>H. Lukman, S.Sos, MSi </b><br> Kepala Desa Makmur sejati', 'h-Lukman-ssos-msi--bupati-kabupaten-rokan-hulu', '<p>Tunggul.com merupakan portal online berita dan hiburan yang berfokus pada pembaca Indonesia baik yang berada di tanah air maupun yang tinggal di luar negeri. Berita Tunggul.com diupdate selama 24 jam dan mendapatkan kunjungan lebih dari 190 juta pageviews setiap bulannya (Sumber: Google Analytics).</p>\r\n<p>Tunggul.com memiliki beragam konten dari berita umum, politik, peristiwa, internasional, ekonomi, lifestyle, selebriti, sports, bola, auto, teknologi, dan lainya. Tunggul juga merupakan salah satu portal pertama yang memberikan inovasi konten video dan mobile (handphone). Para pembaca kami adalah profesional, karyawan kantor, pengusaha, politisi, pelajar, dan ibu rumah tangga.</p>\r\n<p>Konten berita Tunggul.com ditulis secara tajam, singkat, padat, dan dinamis sebagai respons terhadap tuntutan masyarakat yang semakin efisien dalam membaca berita. Selain itu konsep portal berita online juga semakin menjadi pilihan masyarakat karena sifatnya yang up-to-date dan melaporkan kejadian peristiwa secara instant pada saat itu juga sehingga masyarakat tidak perlu menunggu sampai esok harinya untuk membaca berita yang terjadi.</p>\r\n<p>Tunggul.com resmi diluncurkan (Commercial Launch) sebagai portal berita pada 1 Maret 2007) dan merupakan cikal-bakal bisnis online pertama milik PT Lokomedia Tbk, sebuah perusahan media terintegrasi yang terbesar di Indonesia dan di Asia Tenggara. Lokomedia juga memiliki dan mengelola bisnis media TV (RCTI, MNC TV, Global TV), media cetak (Koran Seputar Indonesia, Tabloid Genie, Tabloid Mom & Kiddie, majalah HighEnd, dan Trust), media radio (SINDO, Trijaya FM, ARH Global, Radio Dangdut Indonesia, V Radio), serta sejumlah bisnis media lainnya (mobile VAS, Manajemen artis, rumah produksi film, agen iklan, dll).</p>\r\n<p>Sampai dengan bulan Oktober 2008, Tunggul.com mendapatkan peringkat ke 24 dari Top 100 website terpopuler di Indonesia (Sumber: Alexa.com), peringkat ini terus naik yang disebabkan semakin banyak pengunjung situs yang mengakses Tunggul.com setiap harinya. Selain itu, jumlah pengguna internet yang mencapai 25 juta (Sumber: data APJII per 2005) diperkirakan untuk terus tumbuh dengan signifikan dalam beberapa tahun ke depan.</p>', '2014-04-07', 'kepdes.jpg', 'admin', 11, '13:10:57', 'Senin'),
+(1, '<b>Gassing </b><br> Kepala Desa Sulobaja', 'gassing--kepala-desa-sulobaja', '<p>Assalamu&#39;alaikum Wr. Wb.</p>\r\n\r\n<p>Puji syukur kami panjatkan kehadirat ALLAH SWT atas limpahan rahmat dan karunia-Nya sehingga Pemerintah desa Sulobaja kabupaten Mamuju Tengah&nbsp;berhasil membangun website, Kehadiran Website ini&nbsp;diharapkan dapat memudahkan penyampaian informasi secara terbuka kepada masyarakat serta instansi lain yang terkait.</p>\r\n\r\n<p>Semoga dengan kehadiran Website ini &nbsp;Dapat memperoleh informasi dengan cepat sehingga dapat mengikuti perkembangan dalam pengetahuan yang berkembang dengan cepat pula.</p>\r\n\r\n<p>Kesiapan dari semua masyarakat sangat besar artinya bagi keberadaan website tersebut, sebab tanpa kesiapan masyarakat maka keberadaan website tersebut akan tidak ada gunanya.</p>\r\n\r\n<p>Sehubungan dengan hal tersebut maka semua masyarakat harus mau untuk belajar menggunakan komputer dan internet, agar dapat meng-akses segala informasi yang berhubungan dengan perizinan dan pengetahuan di internet.</p>\r\n\r\n<p>Demikian dan terima kasih.</p>\r\n\r\n<p>Wassalamu&#39;alaikum Wr. Wb.</p>\r\n\r\n<p>Hormat Kami,</p>\r\n\r\n<p>Kepala Desa Sulobaja</p>\r\n\r\n<p>Ir. ABDUL QAIYUM</p>\r\n', '2014-04-07', '76kades.jpg', 'admin', 11, '13:10:57', 'Senin'),
 (2, 'Profile Desa', 'profile-desa', '<p>Desa, atau udik, menurut definisi &quot;universal&quot;, adalah sebuah aglomerasi permukiman di area perdesaan (rural). Di Indonesia, istilah desa adalah pembagian wilayah administratif di Indonesia di bawah kecamatan, yang dipimpin oleh Kepala Desa. Sebuah desa merupakan kumpulan dari beberapa unit permukiman kecil yang disebut kampung (Banten, Jawa Barat) atau dusun (Yogyakarta) atau banjar (Bali) atau jorong (Sumatera Barat). Kepala Desa dapat disebut dengan nama lain misalnya Kepala Kampung atau Petinggi di Kalimantan Timur, Kl&egrave;bun di Madura, Pambakal di Kalimantan Selatan, dan Kuwu di Cirebon, Hukum Tua di Sulawesi Utara.</p>\r\n\r\n<p>Sejak diberlakukannya otonomi daerah Istilah desa dapat disebut dengan nama lain, misalnya di Sumatera Barat disebut dengan istilah nagari, di Aceh dengan istilah gampong, di Papua dan Kutai Barat, Kalimantan Timur disebut dengan istilah kampung. Begitu pula segala istilah dan institusi di desa dapat disebut dengan nama lain sesuai dengan karakteristik adat istiadat desa tersebut. Hal ini merupakan salah satu pengakuan dan penghormatan Pemerintah terhadap asal usul dan adat istiadat setempat.</p>\r\n\r\n<p>Menurut Peraturan Pemerintah Nomor 72 Tahun 2005 tentang Desa, disebut bahwa Desa adalah kesatuan masyarakat hukum yang memiliki batas-batas wilayah yang berwenang untuk mengatur dan mengurus kepentingan masyarakat setempat, berdasarkan asal usul dan adat istiadat setempat yang diakui dan dihormati dalam sistem Pemerintahan Negara Kesatuan Republik Indonesia.</p>\r\n\r\n<p>Sedangkan menurut Undang-Undang Nomor 6 Tahun 2014 tentang Desa, ditentukan bahwa Desa adalah desa dan desa adat atau yang disebut dengan nama lain, selanjutnya disebut Desa, adalah kesatuan masyarakat hukum yang memiliki batas wilayah yang berwenang untuk mengatur dan mengurus urusan pemerintahan, kepentingan masyarakat setempat berdasarkan prakarsa masyarakat, hak asal usul, dan/atau hak tradisional yang diakui dan dihormati dalam sistem pemerintahan Negara Kesatuan Republik Indonesia</p>\r\n', '2014-04-07', '92desa.jpg', 'admin', 4, '13:32:28', 'Senin'),
 (49, 'Visi dan Misi', 'visi-dan-misi', '<p>Dengan adanya berbagai rencana pembangunan strategis baik regional maupun nasional yang akan dilaksanakan oleh Pemerintah Propinsi&nbsp; Jawa Barat maupun Pemerintah Pusat menjadikan Kebupaten Majalengka umumnya dan masyarakat Desa Kodasari khususnya akan mendapatkan berbagai limpahan manfaat yang besar Pembangunan &ndash; pembangunan strategis diantaranya :</p>\r\n\r\n<p>Memperhatikan proyeksi pembangunan seperti tersebut di atas maka Pemerintah&nbsp; Desa Kodasari perlu ekstra perhatian dalam menangkap peluang pembangunan&nbsp; terutama dalam mengantisipasi dan mensikapi perubahan-perubahan yang muncul sebagai dampak dari pembangunan tersebut.</p>\r\n\r\n<p>Berbagai permasalahan yang masih dihadapi oleh Desa Kodasari terutama masih rentannya tingkat kemiskinan sebagai dampak dari internal maupun sebagai dampak global adalah merupakan tantangan kedepan yang perlu dipecahkan bersama melalui penyelenggaraan kepemerintahan yang berpihak kepada rakyat yang didukung keterlibatan dan partisipasi masyarakat dan seluruh stake holder.</p>\r\n\r\n<p>Berdasarkan beberapa pertimbangan tersebut di atas dan komitmen yang berkembang di masyarakat, Desa Kodasari menetapkan visi Pembangunan Desa 2008-2014 yaitu &rdquo;<em>TERWUJUDNYA KEHIDUPAN MASYARAKAT DESA KODASARI YANG&nbsp; RELIGIUS, AMAN,&nbsp; HARMONIS, MAJU, ADIL, DAN TERTIB&nbsp;<strong>(RAHMAT) .</strong></em>&nbsp;&ldquo;<em>&nbsp;</em>dengan misi :Sedangkan arah kebijakan pembangunan ditujukan untuk mewujudkan kulaitas sumberdaya manusia melalui peningkatan derajat kesehatan, peningkatan kualitas pendidikan, peningkatan pemahaman dan pengamalan agama, pengendalian jumlah penduduk, peningkatan peran pemuda dan perempuan dalam pembangunan,&nbsp; peningkatan kualitas tenaga kerja dan pengentasan bagi penyandang masalah kesejahteraan sosial.</p>\r\n\r\n<p>Mewujudkan perekonomian yang stabil melalui pengembangan pertanian, peningkatan nilai tambah produk pertanian, pengembangan produk unggulan,</p>\r\n\r\n<p>Mewujudkan infrastruktur yang proporsional dan berkelanjutan melalui peningkatan kualitas dan kuantitas infrastruktur transportasi, peningkatan kualitas dan kuantitas jaringan irigasi, peningkatan kualitas dan cakupan pelayanan air minum,&nbsp; pengembangan perumahan.</p>\r\n\r\n<p>Mewujudkan tata kelola pemerintahan yang baik melalui peningkatan kualitas aparatur pemerintah desa, dan peningkatan partisipas masyarakat dalam pembangunan.; Mewujudkan kelestarian lingkungan hidup melalui pelestarian sumberdaya alam dan lingkungan hidup.</p>\r\n\r\n<p>Dalam rangka peningkatan kesejahteraan masyarakat sasaran pembangunan bukan hanya difokuskan pada pertumbuhan ekonomi, melainkan juga pada peningkatan kualitas Sumberdaya Manusia (SDM).</p>\r\n\r\n<p>Dengan peningkatan kualitas SDM, diharapkan mampu mengelola potensi desa secara optimal, memenuhi tuntutan kebutuhan dan kemajuan pembangunan Desa Kodasari serta mampu menempatkan manusia sebagai titik sentral, sehingga masyarakat bukan hanya sebagai objek pembangunan tapi juga sebagai subjek yag mampu berperan aktif dalam semua proses kegiatan pembangunan.</p>\r\n', '2017-01-29', '', 'admin', 0, '00:55:28', 'Minggu'),
 (50, 'Struktur Organisasi', 'struktur-organisasi', '<p>Peraturan Menteri Dalam Negeri Nomor 84 Tahun 2015 tentang Susunan Organisasi Dan Tatakerja (SOT) Pemerintah Desa telah diterbitkan. Dalam Permendagri ini terdapat beberapa perbedaan dengan SOT Pemerintah Desa terdahulu. dimana dalam SOT ini terdapat Kepala Seksi (Kasi) sebagai Pelaksana Operasional, yang maksimal terdiri dari 3 Kasi yaitu Kasi Pemerintahan, Kasi Kesejahteraan dan Kasi Pelayanan, dalam satuan Tugas Pelaksana Teknis.</p>\r\n\r\n<p><img alt=\"\" src=\"/swarakalibata/kcfinder/upload/files/struktur%20desa.png\" style=\"height:288px; width:667px\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>PEMERINTAH DESA:</strong><br />\r\nDalam Permendagri Nomor 84 Tahun 2015 tentang SOT Pemerintah Desa ini dijelaskan dengan jelas pada Pasal 2 ayat (1) bahwa Pemerintah Desa adalah Kepala Desa dibantu oleh Perangkat Desa. Dan dijabarkan dalam pasal 2 ayat (2) bahwa Perangkat Desa terdiri atas Sekretariat Desa, Pelaksana Kewilayahan, dan Pelaksana Teknis.<br />\r\n<br />\r\n<strong>SEKRETARIAT DESA:</strong><br />\r\nPasal 3 ayat (1), (2), dan ayat (3) Sekretariat Desa dipimpin oleh seorang Sekretaris Desa dan dibantu oleh unsur Staf Sekretariat. Sekretariat Desa paling banyak terdiri atas 3 (tiga) Urusan, yaitu Urusan Tata Usaha dan Umum, Urusan Keuangan, Urusan Perencanaan, dan paling sedikit terdiri dari 2 (dua) Urusan yaitu Urusan Umum dan Perencanaan, dan Urusan Keuangan. Masing-masing Urusan dipimpin oleh Kepala Urusan (Kaur).<br />\r\n<br />\r\n<strong>PELAKSANA KEWILAYAHAN:</strong><br />\r\nPasal 4 ayat (1) dan ayat (2) Pelaksana Kewilayahan merupakan unsur pembantu Kepala Desa sebagai satuan tugas kewilayahan. Jumlah unsur kewilayahan ditentukan secara proporsional antara pelaksana kewilayahan yang dibutuhkan dengan kemampuan keuangan desa serta memperhatikan luas wilayah kerja. Wilayah kerja dimaksud dapat berupa dusun atau nama lain. Pelaksana Kewilayahan dilaksanakan oleh Kepala Dusun atau sebutan lain.<br />\r\n<br />\r\n<strong>PELAKSANA TEKNIS:</strong><br />\r\nPasal 5 ayat (1), (2), dan ayat (3) Pelaksana Teknis merupakan unsur pembantu Kepala Desa sebagai pelaksana tugas operasional. Pelaksana Teknis paling banyak terdiri dari 3 (tiga) Seksi, yaitu Seksi Pemerintahan, Seksi Kesejahteraan, Seksi Pelayanan, dan paling sedikit terdiri dari 2 (dua) Seksi yaitu Seksi Pemerintahan dan Seksi Kesejahteraan dan Pelayanan.</p>\r\n', '2017-01-29', '', 'admin', 0, '00:59:08', 'Minggu');
@@ -343,7 +343,7 @@ INSERT INTO `halamanstatis` (`id_halaman`, `judul`, `judul_seo`, `isi_halaman`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hubungi`
+-- Struktur dari tabel `hubungi`
 --
 
 CREATE TABLE `hubungi` (
@@ -358,7 +358,7 @@ CREATE TABLE `hubungi` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Dumping data for table `hubungi`
+-- Dumping data untuk tabel `hubungi`
 --
 
 INSERT INTO `hubungi` (`id_hubungi`, `nama`, `email`, `subjek`, `pesan`, `tanggal`, `jam`, `dibaca`) VALUES
@@ -371,7 +371,7 @@ INSERT INTO `hubungi` (`id_hubungi`, `nama`, `email`, `subjek`, `pesan`, `tangga
 -- --------------------------------------------------------
 
 --
--- Table structure for table `identitas`
+-- Struktur dari tabel `identitas`
 --
 
 CREATE TABLE `identitas` (
@@ -389,16 +389,16 @@ CREATE TABLE `identitas` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `identitas`
+-- Dumping data untuk tabel `identitas`
 --
 
 INSERT INTO `identitas` (`id_identitas`, `nama_website`, `email`, `url`, `facebook`, `rekening`, `no_telp`, `meta_deskripsi`, `meta_keyword`, `favicon`, `maps`) VALUES
-(1, 'Desa Makmur Sejati', 'Lukman.rasyid@gmail.com', 'http://localhost/desa', 'https://www.facebook.com/Lukmanrasyid, https://twitter.com/Lukmanrasyid, https://plus.google.com/106633506064864167239, https://id.linkedin.com/', '3511887071', '081267771344', 'Menyajikan berita terbaru, tercepat, dan terpercaya seputar Desa Makmur Sejati', 'Selamat datang di website resmi Desa Makmur Sejati', 'favicon.png', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3989.3358607198243!2d100.35483479999999!3d-0.8910373999999999!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b8aa1a4e0441%3A0x3f81ebb48d31a38b!2sTunggul+Hitam%2C+Padang+Utara%2C+Kota+Padang%2C+Sumatera+Barat+25173!5e0!3m2!1sid!2sid!4v1408275531365');
+(1, 'Desa Sulobaja', 'Lukman.rasyid@gmail.com', 'http://localhost/desa', 'https://www.facebook.com/Lukmanrasyid, https://twitter.com/Lukmanrasyid, https://plus.google.com/106633506064864167239, https://id.linkedin.com/', '3511887071', '081267771344', 'Menyajikan berita terbaru, tercepat, dan terpercaya seputar Desa Makmur Sejati', 'Selamat datang di website resmi Desa Makmur Sejati', 'favicon.png', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2819.350015727714!2d119.48517322011921!3d-2.090456922806536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d8d8132225160a1%3A0x5778a083558a939f!2sDesa%20sulobaja!5e0!3m2!1sen!2sid!4v1733833040606!5m2!1sen!2sid\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori`
+-- Struktur dari tabel `kategori`
 --
 
 CREATE TABLE `kategori` (
@@ -411,7 +411,7 @@ CREATE TABLE `kategori` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Dumping data for table `kategori`
+-- Dumping data untuk tabel `kategori`
 --
 
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `username`, `kategori_seo`, `aktif`, `sidebar`) VALUES
@@ -424,7 +424,7 @@ INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `username`, `kategori_se
 -- --------------------------------------------------------
 
 --
--- Table structure for table `logo`
+-- Struktur dari tabel `logo`
 --
 
 CREATE TABLE `logo` (
@@ -433,7 +433,7 @@ CREATE TABLE `logo` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Dumping data for table `logo`
+-- Dumping data untuk tabel `logo`
 --
 
 INSERT INTO `logo` (`id_logo`, `gambar`) VALUES
@@ -442,7 +442,7 @@ INSERT INTO `logo` (`id_logo`, `gambar`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `member`
+-- Struktur dari tabel `member`
 --
 
 CREATE TABLE `member` (
@@ -456,12 +456,12 @@ CREATE TABLE `member` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menu`
+-- Struktur dari tabel `menu`
 --
 
 CREATE TABLE `menu` (
   `id_menu` int(5) NOT NULL,
-  `id_parent` int(5) NOT NULL DEFAULT 0,
+  `id_parent` int(5) NOT NULL DEFAULT '0',
   `nama_menu` varchar(30) NOT NULL,
   `link` varchar(100) NOT NULL,
   `aktif` enum('Ya','Tidak') NOT NULL DEFAULT 'Ya',
@@ -470,7 +470,7 @@ CREATE TABLE `menu` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `menu`
+-- Dumping data untuk tabel `menu`
 --
 
 INSERT INTO `menu` (`id_menu`, `id_parent`, `nama_menu`, `link`, `aktif`, `position`, `urutan`) VALUES
@@ -490,7 +490,7 @@ INSERT INTO `menu` (`id_menu`, `id_parent`, `nama_menu`, `link`, `aktif`, `posit
 -- --------------------------------------------------------
 
 --
--- Table structure for table `modul`
+-- Struktur dari tabel `modul`
 --
 
 CREATE TABLE `modul` (
@@ -508,7 +508,7 @@ CREATE TABLE `modul` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Dumping data for table `modul`
+-- Dumping data untuk tabel `modul`
 --
 
 INSERT INTO `modul` (`id_modul`, `nama_modul`, `username`, `link`, `static_content`, `gambar`, `publish`, `status`, `aktif`, `urutan`, `link_seo`) VALUES
@@ -535,7 +535,7 @@ INSERT INTO `modul` (`id_modul`, `nama_modul`, `username`, `link`, `static_conte
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mod_alamat`
+-- Struktur dari tabel `mod_alamat`
 --
 
 CREATE TABLE `mod_alamat` (
@@ -544,16 +544,16 @@ CREATE TABLE `mod_alamat` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `mod_alamat`
+-- Dumping data untuk tabel `mod_alamat`
 --
 
 INSERT INTO `mod_alamat` (`id_alamat`, `alamat`) VALUES
-(1, '<p>Kami memiliki komitmen untuk memberikan  layanan terbaik kepada Anda dan selalu berusaha untuk menyediakan produk dan layanan terbaik yang Anda butuhkan. Apabila untuk alasan tertentu Anda merasa tidak puas dengan pelayanan kami, Anda dapat menyampaikan kritik dan saran Anda kepada kami. Kami akan menidaklanjuti masukan yang Anda berikan dan bila perlu mengambil tindakan untuk mencegah masalah yang sama terulang kembali.</p>\n	');
+(1, '<p>salalssaldasdsdsdsd</p>\r\n');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `no_penting`
+-- Struktur dari tabel `no_penting`
 --
 
 CREATE TABLE `no_penting` (
@@ -563,7 +563,7 @@ CREATE TABLE `no_penting` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `no_penting`
+-- Dumping data untuk tabel `no_penting`
 --
 
 INSERT INTO `no_penting` (`id_no_penting`, `nama_instansi`, `no_telpon`) VALUES
@@ -582,7 +582,7 @@ INSERT INTO `no_penting` (`id_no_penting`, `nama_instansi`, `no_telpon`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pasangiklan`
+-- Struktur dari tabel `pasangiklan`
 --
 
 CREATE TABLE `pasangiklan` (
@@ -595,18 +595,18 @@ CREATE TABLE `pasangiklan` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Dumping data for table `pasangiklan`
+-- Dumping data untuk tabel `pasangiklan`
 --
 
 INSERT INTO `pasangiklan` (`id_pasangiklan`, `judul`, `username`, `url`, `gambar`, `tgl_posting`) VALUES
-(1, 'Iklan Sidebar Kiri', 'admin', 'http://lokomedia.web.id', '402465riau.jpg', '2014-06-22'),
-(2, 'Iklan Sidebar Kanan', 'admin', 'http://lokomedia.web.id', '683013lpse.jpg', '2014-06-22'),
+(1, 'Iklan Sidebar Kiri', 'admin', 'https://diskominfosandi.mamujutengahkab.go.id', '955749judol.jpg', '2014-06-22'),
+(2, 'Iklan Sidebar Kanan', 'admin', 'http://lokomedia.web.id', '722198mateng.jpg', '2014-06-22'),
 (31, 'IKlan 3', 'admin', '#', '7702781juta.jpg', '2017-01-28');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `playlist`
+-- Struktur dari tabel `playlist`
 --
 
 CREATE TABLE `playlist` (
@@ -619,7 +619,7 @@ CREATE TABLE `playlist` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Dumping data for table `playlist`
+-- Dumping data untuk tabel `playlist`
 --
 
 INSERT INTO `playlist` (`id_playlist`, `jdl_playlist`, `username`, `playlist_seo`, `gbr_playlist`, `aktif`) VALUES
@@ -635,7 +635,7 @@ INSERT INTO `playlist` (`id_playlist`, `jdl_playlist`, `username`, `playlist_seo
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sekilasinfo`
+-- Struktur dari tabel `sekilasinfo`
 --
 
 CREATE TABLE `sekilasinfo` (
@@ -647,7 +647,7 @@ CREATE TABLE `sekilasinfo` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Dumping data for table `sekilasinfo`
+-- Dumping data untuk tabel `sekilasinfo`
 --
 
 INSERT INTO `sekilasinfo` (`id_sekilas`, `info`, `tgl_posting`, `gambar`, `aktif`) VALUES
@@ -659,18 +659,18 @@ INSERT INTO `sekilasinfo` (`id_sekilas`, `info`, `tgl_posting`, `gambar`, `aktif
 -- --------------------------------------------------------
 
 --
--- Table structure for table `statistik`
+-- Struktur dari tabel `statistik`
 --
 
 CREATE TABLE `statistik` (
   `ip` varchar(20) NOT NULL DEFAULT '',
   `tanggal` date NOT NULL,
-  `hits` int(10) NOT NULL DEFAULT 1,
+  `hits` int(10) NOT NULL DEFAULT '1',
   `online` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `statistik`
+-- Dumping data untuk tabel `statistik`
 --
 
 INSERT INTO `statistik` (`ip`, `tanggal`, `hits`, `online`) VALUES
@@ -977,12 +977,13 @@ INSERT INTO `statistik` (`ip`, `tanggal`, `hits`, `online`) VALUES
 ('::1', '2017-02-26', 5, '1488119384'),
 ('::1', '2017-02-27', 42, '1488214159'),
 ('::1', '2017-04-07', 5, '1491525364'),
-('::1', '2020-06-25', 3, '1593078559');
+('::1', '2020-06-25', 3, '1593078559'),
+('::1', '2024-12-10', 7, '1733836702');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tag`
+-- Struktur dari tabel `tag`
 --
 
 CREATE TABLE `tag` (
@@ -994,7 +995,7 @@ CREATE TABLE `tag` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Dumping data for table `tag`
+-- Dumping data untuk tabel `tag`
 --
 
 INSERT INTO `tag` (`id_tag`, `nama_tag`, `username`, `tag_seo`, `count`) VALUES
@@ -1018,7 +1019,7 @@ INSERT INTO `tag` (`id_tag`, `nama_tag`, `username`, `tag_seo`, `count`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `templates`
+-- Struktur dari tabel `templates`
 --
 
 CREATE TABLE `templates` (
@@ -1031,7 +1032,7 @@ CREATE TABLE `templates` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Dumping data for table `templates`
+-- Dumping data untuk tabel `templates`
 --
 
 INSERT INTO `templates` (`id_templates`, `judul`, `username`, `pembuat`, `folder`, `aktif`) VALUES
@@ -1040,7 +1041,7 @@ INSERT INTO `templates` (`id_templates`, `judul`, `username`, `pembuat`, `folder
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -1056,17 +1057,17 @@ CREATE TABLE `users` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`username`, `password`, `nama_lengkap`, `email`, `no_telp`, `foto`, `level`, `blokir`, `id_session`) VALUES
-('admin', 'bff0cc42103de1b4721370e84dc24f635a7afeca41198c9b3e03946a1b6b7191d14356408a5e57ce6daf77e6e800c66fac7ab0482d57d48d23e6808e4b562daa', 'Makmur Sejati', 'Lukman.rasyid@gmail.com', '081267771344', '', 'admin', 'N', 'q173s8hs1jl04st35169ccl8o7'),
-('Lukman', '882c306525a9f885466520ba2aa6b10377b029cb569311fc17161d40df6e1bab7eb6103fcf567ce3a1375e77cc7db1928efec90cd0a379303fc2adb159bb1d14', 'Lukman Sugara', 'Lukman.sugara@gmail.com', '081267771333', '', 'user', 'N', '882c306525a9f885466520ba2aa6b10377b029cb569311fc17161d40df6e1bab7eb6103fcf567ce3a1375e77cc7db1928efec90cd0a379303fc2adb159bb1d14');
+('admin', 'e10adc3949ba59abbe56e057f20f883e', 'Aty Amalia', 'aty.amalia@gmail.com', '081267771344', '', 'admin', 'Y', 'q173s8hs1jl04st35169ccl8o7'),
+('Lukman', '882c306525a9f885466520ba2aa6b10377b029cb569311fc17161d40df6e1bab7eb6103fcf567ce3a1375e77cc7db1928efec90cd0a379303fc2adb159bb1d14', 'Gassing', 'gassing@gmail.com', '081267771333', '61kades.jpg', 'user', 'Y', '882c306525a9f885466520ba2aa6b10377b029cb569311fc17161d40df6e1bab7eb6103fcf567ce3a1375e77cc7db1928efec90cd0a379303fc2adb159bb1d14');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users_modul`
+-- Struktur dari tabel `users_modul`
 --
 
 CREATE TABLE `users_modul` (
@@ -1076,7 +1077,7 @@ CREATE TABLE `users_modul` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `users_modul`
+-- Dumping data untuk tabel `users_modul`
 --
 
 INSERT INTO `users_modul` (`id_umod`, `id_session`, `id_modul`) VALUES
@@ -1085,7 +1086,7 @@ INSERT INTO `users_modul` (`id_umod`, `id_session`, `id_modul`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `video`
+-- Struktur dari tabel `video`
 --
 
 CREATE TABLE `video` (
@@ -1098,7 +1099,7 @@ CREATE TABLE `video` (
   `gbr_video` varchar(100) COLLATE latin1_general_ci NOT NULL,
   `video` varchar(100) COLLATE latin1_general_ci NOT NULL,
   `youtube` varchar(100) COLLATE latin1_general_ci NOT NULL,
-  `dilihat` int(7) NOT NULL DEFAULT 1,
+  `dilihat` int(7) NOT NULL DEFAULT '1',
   `hari` varchar(20) COLLATE latin1_general_ci NOT NULL,
   `tanggal` date NOT NULL,
   `jam` time NOT NULL,
@@ -1106,7 +1107,7 @@ CREATE TABLE `video` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Dumping data for table `video`
+-- Dumping data untuk tabel `video`
 --
 
 INSERT INTO `video` (`id_video`, `id_playlist`, `username`, `jdl_video`, `video_seo`, `keterangan`, `gbr_video`, `video`, `youtube`, `dilihat`, `hari`, `tanggal`, `jam`, `tagvid`) VALUES
@@ -1118,299 +1119,299 @@ INSERT INTO `video` (`id_video`, `id_playlist`, `username`, `jdl_video`, `video_
 --
 
 --
--- Indexes for table `agenda`
+-- Indeks untuk tabel `agenda`
 --
 ALTER TABLE `agenda`
   ADD PRIMARY KEY (`id_agenda`);
 
 --
--- Indexes for table `album`
+-- Indeks untuk tabel `album`
 --
 ALTER TABLE `album`
   ADD PRIMARY KEY (`id_album`);
 
 --
--- Indexes for table `background`
+-- Indeks untuk tabel `background`
 --
 ALTER TABLE `background`
   ADD PRIMARY KEY (`id_background`);
 
 --
--- Indexes for table `berita`
+-- Indeks untuk tabel `berita`
 --
 ALTER TABLE `berita`
   ADD PRIMARY KEY (`id_berita`);
 
 --
--- Indexes for table `data_penduduk`
+-- Indeks untuk tabel `data_penduduk`
 --
 ALTER TABLE `data_penduduk`
   ADD PRIMARY KEY (`id_data_penduduk`);
 
 --
--- Indexes for table `data_penduduk_detail`
+-- Indeks untuk tabel `data_penduduk_detail`
 --
 ALTER TABLE `data_penduduk_detail`
   ADD PRIMARY KEY (`id_data_penduduk_detail`);
 
 --
--- Indexes for table `gallery`
+-- Indeks untuk tabel `gallery`
 --
 ALTER TABLE `gallery`
   ADD PRIMARY KEY (`id_gallery`);
 
 --
--- Indexes for table `halamanstatis`
+-- Indeks untuk tabel `halamanstatis`
 --
 ALTER TABLE `halamanstatis`
   ADD PRIMARY KEY (`id_halaman`);
 
 --
--- Indexes for table `hubungi`
+-- Indeks untuk tabel `hubungi`
 --
 ALTER TABLE `hubungi`
   ADD PRIMARY KEY (`id_hubungi`);
 
 --
--- Indexes for table `identitas`
+-- Indeks untuk tabel `identitas`
 --
 ALTER TABLE `identitas`
   ADD PRIMARY KEY (`id_identitas`);
 
 --
--- Indexes for table `kategori`
+-- Indeks untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indexes for table `logo`
+-- Indeks untuk tabel `logo`
 --
 ALTER TABLE `logo`
   ADD PRIMARY KEY (`id_logo`);
 
 --
--- Indexes for table `member`
+-- Indeks untuk tabel `member`
 --
 ALTER TABLE `member`
   ADD PRIMARY KEY (`id_member`);
 
 --
--- Indexes for table `menu`
+-- Indeks untuk tabel `menu`
 --
 ALTER TABLE `menu`
   ADD PRIMARY KEY (`id_menu`);
 
 --
--- Indexes for table `modul`
+-- Indeks untuk tabel `modul`
 --
 ALTER TABLE `modul`
   ADD PRIMARY KEY (`id_modul`);
 
 --
--- Indexes for table `mod_alamat`
+-- Indeks untuk tabel `mod_alamat`
 --
 ALTER TABLE `mod_alamat`
   ADD PRIMARY KEY (`id_alamat`);
 
 --
--- Indexes for table `no_penting`
+-- Indeks untuk tabel `no_penting`
 --
 ALTER TABLE `no_penting`
   ADD PRIMARY KEY (`id_no_penting`);
 
 --
--- Indexes for table `pasangiklan`
+-- Indeks untuk tabel `pasangiklan`
 --
 ALTER TABLE `pasangiklan`
   ADD PRIMARY KEY (`id_pasangiklan`);
 
 --
--- Indexes for table `playlist`
+-- Indeks untuk tabel `playlist`
 --
 ALTER TABLE `playlist`
   ADD PRIMARY KEY (`id_playlist`);
 
 --
--- Indexes for table `sekilasinfo`
+-- Indeks untuk tabel `sekilasinfo`
 --
 ALTER TABLE `sekilasinfo`
   ADD PRIMARY KEY (`id_sekilas`);
 
 --
--- Indexes for table `tag`
+-- Indeks untuk tabel `tag`
 --
 ALTER TABLE `tag`
   ADD PRIMARY KEY (`id_tag`);
 
 --
--- Indexes for table `templates`
+-- Indeks untuk tabel `templates`
 --
 ALTER TABLE `templates`
   ADD PRIMARY KEY (`id_templates`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`username`);
 
 --
--- Indexes for table `users_modul`
+-- Indeks untuk tabel `users_modul`
 --
 ALTER TABLE `users_modul`
   ADD PRIMARY KEY (`id_umod`);
 
 --
--- Indexes for table `video`
+-- Indeks untuk tabel `video`
 --
 ALTER TABLE `video`
   ADD PRIMARY KEY (`id_video`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `agenda`
+-- AUTO_INCREMENT untuk tabel `agenda`
 --
 ALTER TABLE `agenda`
   MODIFY `id_agenda` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
--- AUTO_INCREMENT for table `album`
+-- AUTO_INCREMENT untuk tabel `album`
 --
 ALTER TABLE `album`
   MODIFY `id_album` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
--- AUTO_INCREMENT for table `background`
+-- AUTO_INCREMENT untuk tabel `background`
 --
 ALTER TABLE `background`
   MODIFY `id_background` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `berita`
+-- AUTO_INCREMENT untuk tabel `berita`
 --
 ALTER TABLE `berita`
   MODIFY `id_berita` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=683;
 
 --
--- AUTO_INCREMENT for table `data_penduduk`
+-- AUTO_INCREMENT untuk tabel `data_penduduk`
 --
 ALTER TABLE `data_penduduk`
   MODIFY `id_data_penduduk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `data_penduduk_detail`
+-- AUTO_INCREMENT untuk tabel `data_penduduk_detail`
 --
 ALTER TABLE `data_penduduk_detail`
   MODIFY `id_data_penduduk_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `gallery`
+-- AUTO_INCREMENT untuk tabel `gallery`
 --
 ALTER TABLE `gallery`
   MODIFY `id_gallery` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=255;
 
 --
--- AUTO_INCREMENT for table `halamanstatis`
+-- AUTO_INCREMENT untuk tabel `halamanstatis`
 --
 ALTER TABLE `halamanstatis`
   MODIFY `id_halaman` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
--- AUTO_INCREMENT for table `hubungi`
+-- AUTO_INCREMENT untuk tabel `hubungi`
 --
 ALTER TABLE `hubungi`
   MODIFY `id_hubungi` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
--- AUTO_INCREMENT for table `identitas`
+-- AUTO_INCREMENT untuk tabel `identitas`
 --
 ALTER TABLE `identitas`
   MODIFY `id_identitas` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `kategori`
+-- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   MODIFY `id_kategori` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
--- AUTO_INCREMENT for table `logo`
+-- AUTO_INCREMENT untuk tabel `logo`
 --
 ALTER TABLE `logo`
   MODIFY `id_logo` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `member`
+-- AUTO_INCREMENT untuk tabel `member`
 --
 ALTER TABLE `member`
   MODIFY `id_member` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `menu`
+-- AUTO_INCREMENT untuk tabel `menu`
 --
 ALTER TABLE `menu`
   MODIFY `id_menu` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
 
 --
--- AUTO_INCREMENT for table `modul`
+-- AUTO_INCREMENT untuk tabel `modul`
 --
 ALTER TABLE `modul`
   MODIFY `id_modul` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
--- AUTO_INCREMENT for table `mod_alamat`
+-- AUTO_INCREMENT untuk tabel `mod_alamat`
 --
 ALTER TABLE `mod_alamat`
   MODIFY `id_alamat` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `no_penting`
+-- AUTO_INCREMENT untuk tabel `no_penting`
 --
 ALTER TABLE `no_penting`
   MODIFY `id_no_penting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `pasangiklan`
+-- AUTO_INCREMENT untuk tabel `pasangiklan`
 --
 ALTER TABLE `pasangiklan`
   MODIFY `id_pasangiklan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- AUTO_INCREMENT for table `playlist`
+-- AUTO_INCREMENT untuk tabel `playlist`
 --
 ALTER TABLE `playlist`
   MODIFY `id_playlist` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
--- AUTO_INCREMENT for table `sekilasinfo`
+-- AUTO_INCREMENT untuk tabel `sekilasinfo`
 --
 ALTER TABLE `sekilasinfo`
   MODIFY `id_sekilas` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `tag`
+-- AUTO_INCREMENT untuk tabel `tag`
 --
 ALTER TABLE `tag`
   MODIFY `id_tag` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
--- AUTO_INCREMENT for table `templates`
+-- AUTO_INCREMENT untuk tabel `templates`
 --
 ALTER TABLE `templates`
   MODIFY `id_templates` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `users_modul`
+-- AUTO_INCREMENT untuk tabel `users_modul`
 --
 ALTER TABLE `users_modul`
   MODIFY `id_umod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
 
 --
--- AUTO_INCREMENT for table `video`
+-- AUTO_INCREMENT untuk tabel `video`
 --
 ALTER TABLE `video`
   MODIFY `id_video` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=168;
